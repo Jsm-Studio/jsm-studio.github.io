@@ -1,0 +1,21 @@
+#main [xbuild] {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#main .name {
+  background: linear-gradient(135deg, #87c2ff, #fff, #fff);
+}
+
+#main .image {
+  background: url("https://titanium-studio.github.io/src/jpg/robot4.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.half-position {
+  transform: translate(-50%, -50%);
+}
