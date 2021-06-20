@@ -1,3 +1,72 @@
+:root {
+  --accent-color: rgb(250, 76, 76);
+  --nav_panel-height: 64px;
+  --content-width: 1024px;
+  --logo-size: 48px;
+}
+
+a {
+  cursor: pointer;
+}
+
+#nav_panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--nav_panel-height);
+  z-index: 9999;
+}
+
+#nav_panel #logo {
+  width: var(--nav_panel-height);
+  height: var(--nav_panel-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav_panel [xhero] {
+  background-color: var(--accent-color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  font-size: calc(var(--logo-size) / 3);
+  height: var(--logo-size);
+  width: var(--logo-size);
+}
+
+#nav_panel [xcontent] {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  width: var(--content-width);
+  overflow: hidden;
+}
+
+#nav_panel [xlist] {
+  justify-content: flex-end;
+}
+
+#nav_panel li {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-left: 12px;
+}
+
+#nav_panel [xlist] [xtext] {
+  padding: 8px;
+  height: fit-content;
+  font-weight: 500;
+}
+
 #main [xbuild] {
   flex: 1;
   display: flex;
@@ -7,13 +76,17 @@
 
 #main .name {
   background: linear-gradient(150deg, #87c2ff, #a0c8d8, #fff, #fff);
+  flex: 1;
 }
 
 #main .image {
-  background: url("https://titanium-studio.github.io/src/jpg/robot4.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  flex: 1;
+  overflow: hidden;
+}
+
+#main .image [ximage] {
+  width: auto;
+  height: 100%;
 }
 
 .half-position {
