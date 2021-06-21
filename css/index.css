@@ -9,6 +9,10 @@ a {
   cursor: pointer;
 }
 
+a:hover {
+  color: var(--accent-color);
+}
+
 .text-center {
   text-align: center;
 }
@@ -81,6 +85,7 @@ a {
   padding: 8px;
   height: fit-content;
   font-weight: 500;
+  text-decoration: none;
 }
 
 #main [xbuild] {
@@ -119,7 +124,7 @@ a {
   flex-direction: column;
 }
 
-#about h1{
+#about h1 {
   text-align: center;
   width: 750px;
   margin-top: 4em;
@@ -130,15 +135,22 @@ a {
   overflow: hidden;
 }
 
-
 #about [xlist="row"]>[xbuild] {
   margin-top: 10em;
 }
 
-#about [xlist="row"] [xlist]>[xbuild]:first-child{
-  margin-top: 0;
+#about [xlist="row"] [xlist]>[xbuild]:first-child {
+  margin-top: 0.8em;
 }
 
-#about [xlist="row"] [xlist]>[xbuild]{
+#about [xlist="row"] [xlist]>[xbuild] {
   margin-top: 3em;
+}
+
+#data .data-line{
+  flex: 1;
+}
+
+#data .data-line-2{
+  flex: 2;
 }

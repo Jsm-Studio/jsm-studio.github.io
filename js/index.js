@@ -9,10 +9,10 @@ jsm
         XContent(
           XBlank({ id: "logo" }, XHero(XText("JSM"))),
           XList({ tagName: "ul", listType: "row" },
-            XBlank({ tagName: "li" }, XText({ tagName: "a" }, "index")),
-            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#about" }, "about")),
-            XBlank({ tagName: "li" }, XText({ tagName: "a" }, "cart")),
-            XBlank({ tagName: "li" }, XText({ tagName: "a" }, "contact"))
+            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#main" }, "index")),
+            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#about" }, "about us")),
+            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "" }, "cart")),
+            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#footer" }, "contact"))
           )
         )
       ),
@@ -35,20 +35,44 @@ jsm
               XList(
                 XText({ tagName: "p" }, "Repair of computers and laptops"),
                 XText({ tagName: "p" }, "Installing Windows OS"),
-                XText({ tagName: "p" }, "Diagnostics and analysis")
+                XText({ tagName: "p" }, "Diagnostics and analysis"),
+                XText({ tagName: "p" }, "Quality Assurance")
               )
             ),
             XList({ listType: "row" },
-              XBlank(),
-              XBlank()
+              XBlank(
+                XText({ tagName: "h3" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+              ),
+              XList(
+                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+              )
             ),
             XList({ listType: "row" },
-              XBlank(),
-              XBlank()
+              XBlank(
+                XText({ tagName: "h3" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+              ),
+              XList(
+                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+              )
             )
           )
         )
-      )
+      ),
+      XSection({ id: "data" },
+        XList({ listType: "row" },
+          XBlank({ css: ["data-line", "data-line-2"] }),
+          XBlank(),
+          XBlank(),
+          XBlank(),
+          XBlank(),
+          XBlank()
+        )
+      ),
+      XFooter({ id: "footer" })
     ]
   )
   .then(jsm.use)
