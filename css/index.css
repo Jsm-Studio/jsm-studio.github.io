@@ -3,6 +3,7 @@
   --nav_panel-height: 64px;
   --content-width: 1024px;
   --logo-size: 48px;
+  --section-margin: 256px;
 }
 
 a {
@@ -127,7 +128,7 @@ a:hover {
 #about h1 {
   text-align: center;
   width: 750px;
-  margin-top: 4em;
+  margin-top: var(--section-margin);
 }
 
 #about [xlist]>[xbuild] {
@@ -147,10 +148,44 @@ a:hover {
   margin-top: 3em;
 }
 
-#data .data-line{
-  flex: 1;
+#data {
+  margin-top: var(--section-margin);
+  height:100%;
 }
 
-#data .data-line-2{
+#data .data-container>[xbuild] {
+  flex: 1;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#data .data-container .line-1 {
   flex: 2;
+  background-color: var(--gray-900, #101010);
+  color: white;
+}
+
+#data .data-container .line-3 {
+  flex: 3;
+  overflow: hidden;
+}
+
+#data .data-container .line-3 [ximage] {
+  height: 100%;
+  width: auto;
+}
+
+#data .line-4 {
+  background-color: #fbfbfb;
+}
+
+#data .line-5 {
+  background-color: #adadad;
+}
+
+#data .line-6 {
+  background-color: #8a8a8a;
 }

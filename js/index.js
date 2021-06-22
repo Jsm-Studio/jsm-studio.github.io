@@ -1,5 +1,6 @@
 import { XStudio, XBlank, XSection, XContent, XList, XText, XHero, XFooter, XImage } from "https://x-titan.github.io/xstudio/index.js"
 
+const
 const jsm = new XStudio("#app")
 jsm
   .init()
@@ -63,13 +64,25 @@ jsm
         )
       ),
       XSection({ id: "data" },
-        XList({ listType: "row" },
-          XBlank({ css: ["data-line", "data-line-2"] }),
-          XBlank(),
-          XBlank(),
-          XBlank(),
-          XBlank(),
-          XBlank()
+        XList({ listType: "row", css: "data-container" },
+          XBlank({ css: "line-1" },
+            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+          ),
+          XBlank({ css: "line-2" },
+            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+          ),
+          XBlank({ css: "line-3" },
+            XImage({ css: "data-image" }, "https://titanium-studio.github.io/src/webp/robot3.webp")
+          ),
+          XBlank({ css: "line-4" },
+            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+          ),
+          XBlank({ css: "line-5" },
+            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+          ),
+          XBlank({ css: "line-6" },
+            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+          )
         )
       ),
       XFooter({ id: "footer" })
@@ -77,4 +90,11 @@ jsm
   )
   .then(jsm.use)
   .then(jsm.ready)
+  .then(x => {
+    let app = 
+    let a = document.querySelectorAll("[xtext]")
+    console.dir(a)
+    console.dir(a[5])
+    document.onscroll = () => { console.log("a") }
+  })
   .catch(XStudio.ERROR)
