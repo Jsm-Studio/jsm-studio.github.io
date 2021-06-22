@@ -1,7 +1,34 @@
 import { XStudio, XBlank, XSection, XContent, XList, XText, XHero, XFooter, XImage } from "https://x-titan.github.io/xstudio/index.js"
+import animate from "./scrollAnimation.js";
+// function scrollAnimation(event) {
+//   if (scrollAnimation.isScrolling == false) {
+//     requestAnimationFrame(() => {
+//       scrollAnimation(event)
+//       scrollAnimation.isScrolling = false
+//     })
+//   }
+//   for (const target of scrollAnimation.source)
+//     if (isPartiallyVisible(target))
+//       target.classList.add(scrollAnimation.activeClassName)
+//     else target.classList.remove(scrollAnimation.activeClassName);
+//   scrollAnimation.isScrolling = true
+// }
+// scrollAnimation.activeClassName = "active"
+// scrollAnimation.isScrolling = false
+// scrollAnimation.source = []
+// scrollAnimation.getSource = () => Array.isArray(scrollAnimation.source) ? scrollAnimation.source : []
 
-const
-const jsm = new XStudio("#app")
+// function isPartiallyVisible(target) {
+//   let { top, bottom, height } = target.getBoundingClientRect()
+//   return (top + height >= 0) && (height + window.innerHeight >= bottom)
+// }
+// function isFullyVisible(target) {
+//   let { top, bottom } = target.getBoundingClientRect()
+//   return (top >= 0) && (bottom <= window.innerHeight)
+// }
+
+const app = document.getElementById("app")
+const jsm = new XStudio(app)
 jsm
   .init()
   .then(() =>
@@ -91,10 +118,10 @@ jsm
   .then(jsm.use)
   .then(jsm.ready)
   .then(x => {
-    let app = 
-    let a = document.querySelectorAll("[xtext]")
-    console.dir(a)
-    console.dir(a[5])
-    document.onscroll = () => { console.log("a") }
+    animate({
+      scrollParent:document.getElementById("xbody"),
+      activeClassName: "viewActive",
+      sourceElements: document.querySelectorAll("[xtext]")
+    })
   })
   .catch(XStudio.ERROR)

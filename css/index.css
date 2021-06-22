@@ -30,6 +30,17 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
+[xtext] {
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+  transition: transform 0.5s ease;
+  transition-delay: 0.15s;
+}
+
+[xtext].viewActive {
+  transform: rotateX(0deg);
+}
+
 #nav_panel {
   position: fixed;
   top: 0;
@@ -99,6 +110,7 @@ a:hover {
 #main .name {
   background: linear-gradient(150deg, #87c2ff, #a0c8d8, #fff, #fff);
   flex: 1;
+  width: 100%;
 }
 
 #main .image {
@@ -127,7 +139,7 @@ a:hover {
 
 #about h1 {
   text-align: center;
-  width: 750px;
+  max-width: 750px;
   margin-top: var(--section-margin);
 }
 
@@ -150,14 +162,14 @@ a:hover {
 
 #data {
   margin-top: var(--section-margin);
-  height:100%;
+  height: 100%;
 }
 
 #data .data-container>[xbuild] {
   flex: 1;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -188,4 +200,45 @@ a:hover {
 
 #data .line-6 {
   background-color: #8a8a8a;
+}
+
+@media screen and (max-width: 1024px) {
+  #nav_panel [xcontent] {
+    padding: 0 var(--size1, 16px);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #main {
+    flex-direction: column;
+  }
+  #main .image [ximage] {
+    width: 100%;
+    height: auto;
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  #nav_panel, #nav_panel [xcontent], #nav_panel [xlist] {
+    width: auto;
+  }
+  #about [xlist="row"] {
+    padding-top: 5em;
+    flex-direction: column;
+  }
+  #about [xlist="row"]>[xbuild] {
+    margin-top: 5em;
+  }
+  #data .data-container {
+    flex-direction: column;
+  }
+  #data .data-container>[xbuild] {
+    flex: 1;
+    writing-mode: horizontal-tb;
+  }
+  #data .data-container .line-3 [ximage] {
+    height: auto;
+    width: 100%;
+  }
 }
