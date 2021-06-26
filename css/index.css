@@ -49,6 +49,11 @@ a:hover {
   width: 100%;
   height: var(--nav_panel-height);
   z-index: 9999;
+  background: var(--accent);
+}
+
+#nav_panel.transparent {
+  background: none;
 }
 
 #nav_panel #logo {
@@ -90,14 +95,16 @@ a:hover {
   display: flex;
   align-items: center;
   width: fit-content;
-  margin-left: 12px;
 }
 
-#nav_panel [xlist] [xtext] {
-  padding: 8px;
-  height: fit-content;
+#nav_panel [xlist] a {
+  color: var(--light);
+  padding: 0 16px;
+  height: 100%;
   font-weight: 500;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 #main [xbuild] {
@@ -200,6 +207,10 @@ a:hover {
 
 #data .line-6 {
   background-color: #8a8a8a;
+}
+
+#footer {
+  background: var(--grey-900, #101010);
 }
 
 @media screen and (max-width: 1024px) {

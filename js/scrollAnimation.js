@@ -36,18 +36,21 @@ function isFullyVisible(target) {
  * @param {HTMLElement} [config.scrollParent]
  * @param {HTMLElement[]} [config.sourceElements]
  * @param {string} [config.activeClassName]
+ * @param {Function} [config.aftercallback]
  */
 export default function scrollAnimation(config) {
-  let scrollParent = window, scrollAnimator = new ScrollAnimator()
+  let scrollParent = window, scrollAnimator = new ScrollAnimator(), aftercallback = () => void 0;
   if ("object" === typeof config && config !== null) {
     if (config.scrollParent instanceof HTMLElement) scrollParent = config.scrollParent
     scrollAnimator.source = config.sourceElements
     scrollAnimator.activeClassName = config.activeClassName;
+    if ("function" === typeof config.aftercallback) aftercallback = config.aftercallback
   }
   scrollParent.addEventListener(
     "scroll",
-    () => ScrollAnimator.animate(scrollAnimator),
+    e => { ScrollAnimator.animate(scrollAnimator); aftercallback(e) },
     false
   )
   ScrollAnimator.animate(scrollAnimator)
+  aftercallback({ type: "scroll" })
 }

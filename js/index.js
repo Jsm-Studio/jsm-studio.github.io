@@ -1,31 +1,5 @@
 import { XStudio, XBlank, XSection, XContent, XList, XText, XHero, XFooter, XImage } from "https://x-titan.github.io/xstudio/index.js"
-import animate from "./scrollAnimation.js";
-// function scrollAnimation(event) {
-//   if (scrollAnimation.isScrolling == false) {
-//     requestAnimationFrame(() => {
-//       scrollAnimation(event)
-//       scrollAnimation.isScrolling = false
-//     })
-//   }
-//   for (const target of scrollAnimation.source)
-//     if (isPartiallyVisible(target))
-//       target.classList.add(scrollAnimation.activeClassName)
-//     else target.classList.remove(scrollAnimation.activeClassName);
-//   scrollAnimation.isScrolling = true
-// }
-// scrollAnimation.activeClassName = "active"
-// scrollAnimation.isScrolling = false
-// scrollAnimation.source = []
-// scrollAnimation.getSource = () => Array.isArray(scrollAnimation.source) ? scrollAnimation.source : []
-
-// function isPartiallyVisible(target) {
-//   let { top, bottom, height } = target.getBoundingClientRect()
-//   return (top + height >= 0) && (height + window.innerHeight >= bottom)
-// }
-// function isFullyVisible(target) {
-//   let { top, bottom } = target.getBoundingClientRect()
-//   return (top >= 0) && (bottom <= window.innerHeight)
-// }
+import animate from "./scrollAnimation.js"
 
 const app = document.getElementById("app")
 const jsm = new XStudio(app)
@@ -118,10 +92,15 @@ jsm
   .then(jsm.use)
   .then(jsm.ready)
   .then(x => {
+    let xbody = document.getElementById("xbody"), navpanel = document.getElementById("nav_panel")
     animate({
-      scrollParent:document.getElementById("xbody"),
+      scrollParent: xbody,
       activeClassName: "viewActive",
-      sourceElements: document.querySelectorAll("[xtext]")
+      sourceElements: document.querySelectorAll("[xtext]"),
+      aftercallback: e => {
+        xbody.scrollTop < (window.innerHeight - 64) ? navpanel.classList.add("transparent") : navpanel.classList.remove("transparent")
+      }
     })
+
   })
   .catch(XStudio.ERROR)
