@@ -1,8 +1,11 @@
 import { XStudio, XBlank, XSection, XContent, XList, XText, XHero, XFooter, XImage } from "https://x-titan.github.io/xstudio/index.js"
+import { search, device, add, remove, scrollTo } from "http://x-titan.github.io/web-utils/index.js"
 import animate from "./scrollAnimation.js"
 
 const app = document.getElementById("app")
 const jsm = new XStudio(app)
+const configP = { tagName: "p" }
+
 jsm
   .init()
   .then(() =>
@@ -13,7 +16,7 @@ jsm
           XList({ tagName: "ul", listType: "row" },
             XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#main" }, "index")),
             XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#about" }, "about us")),
-            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "" }, "cart")),
+            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#cards" }, "cards")),
             XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#footer" }, "contact"))
           )
         )
@@ -26,6 +29,17 @@ jsm
           )
         )
       ),
+      XContent({ id: "bodyContent" },
+        XSection({ id: "cards" },
+          XList({ listType: "row" },
+            XBlank(XImage("../src/cog.svg"), XText("text")),
+            XBlank(XText("text")),
+            XBlank(XText("text")),
+            XBlank(XText("text")),
+            XBlank(XText("text"))
+          )
+        )
+      ),
       XSection({ id: "about" },
         XContent(
           XText({ tagName: "h1" }, "Modern problems require modern solutions"),
@@ -35,10 +49,10 @@ jsm
                 XText({ tagName: "h3" }, "We offer our services")
               ),
               XList(
-                XText({ tagName: "p" }, "Repair of computers and laptops"),
-                XText({ tagName: "p" }, "Installing Windows OS"),
-                XText({ tagName: "p" }, "Diagnostics and analysis"),
-                XText({ tagName: "p" }, "Quality Assurance")
+                XText(configP, "Repair of computers and laptops"),
+                XText(configP, "Installing Windows OS"),
+                XText(configP, "Diagnostics and analysis"),
+                XText(configP, "Quality Assurance")
               )
             ),
             XList({ listType: "row" },
@@ -46,9 +60,9 @@ jsm
                 XText({ tagName: "h3" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
               ),
               XList(
-                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
-                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
-                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+                XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
               )
             ),
             XList({ listType: "row" },
@@ -56,9 +70,9 @@ jsm
                 XText({ tagName: "h3" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
               ),
               XList(
-                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
-                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
-                XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+                XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+                XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
               )
             )
           )
@@ -67,22 +81,22 @@ jsm
       XSection({ id: "data" },
         XList({ listType: "row", css: "data-container" },
           XBlank({ css: "line-1" },
-            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+            XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
           ),
           XBlank({ css: "line-2" },
-            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+            XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
           ),
           XBlank({ css: "line-3" },
             XImage({ css: "data-image" }, "https://titanium-studio.github.io/src/webp/robot3.webp")
           ),
           XBlank({ css: "line-4" },
-            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+            XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
           ),
           XBlank({ css: "line-5" },
-            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+            XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
           ),
           XBlank({ css: "line-6" },
-            XText({ tagName: "p" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+            XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
           )
         )
       ),
@@ -92,15 +106,20 @@ jsm
   .then(jsm.use)
   .then(jsm.ready)
   .then(x => {
-    let xbody = document.getElementById("xbody"), navpanel = document.getElementById("nav_panel")
-    animate({
-      scrollParent: xbody,
-      activeClassName: "viewActive",
-      sourceElements: document.querySelectorAll("[xtext]"),
-      aftercallback: e => {
-        xbody.scrollTop < (window.innerHeight - 64) ? navpanel.classList.add("transparent") : navpanel.classList.remove("transparent")
-      }
-    })
+    const xbody = search.id("xbody"), nav = search.id("nav_panel"),
+      hash = location.hash, logo = search("[xhero]"),
+      sourceElements = search.all("[xtext]"), activeClassName = "viewActive";
+
+    logo.onclick = () => location.href = location.origin;
+
+    if (!device.isMobile)
+      animate({
+        scrollParent: xbody, activeClassName, sourceElements,
+        aftercallback: () => xbody.scrollTop < (innerHeight - 64)
+          ? add(nav, "transparent") : remove(nav, "transparent")
+      })
+    else sourceElements.forEach(x => add(x, activeClassName))
+    if (hash !== "") setTimeout(() => scrollTo(search(hash)), 100)
 
   })
   .catch(XStudio.ERROR)
