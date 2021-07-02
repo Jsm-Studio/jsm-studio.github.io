@@ -41,6 +41,10 @@ a:hover {
   transform: rotateX(0deg);
 }
 
+#xbody {
+  background: #f0f0f0;
+}
+
 #nav_panel {
   position: fixed;
   top: 0;
@@ -49,6 +53,11 @@ a:hover {
   width: 100%;
   height: var(--nav_panel-height);
   z-index: 9999;
+  background: #4a4a4a;
+}
+
+#nav_panel.transparent {
+  background: none;
 }
 
 #nav_panel #logo {
@@ -90,14 +99,49 @@ a:hover {
   display: flex;
   align-items: center;
   width: fit-content;
-  margin-left: 12px;
 }
 
-#nav_panel [xlist] [xtext] {
-  padding: 8px;
-  height: fit-content;
-  font-weight: 500;
+#nav_panel [xlist] a {
+  color: var(--light);
+  padding: 0 16px;
+  height: 100%;
+  font-weight: 300;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+#bodyContent {
+  max-width: 1024px;
+  margin: 0 auto;
+  height: auto;
+}
+
+#cards [xlist] {
+  gap: 10px;
+  margin-top: 32px;
+  justify-content: center;
+}
+
+#cards [xlist]>[xbuild] {
+  max-width: 180px;
+  min-width: 140px;
+  max-height: 250px;
+  height: auto;
+  background: white;
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#cards [ximage] {
+  padding: 32px;
+}
+
+#cards [xtext] {
+  font-size: 2em;
 }
 
 #main [xbuild] {
@@ -108,7 +152,7 @@ a:hover {
 }
 
 #main .name {
-  background: linear-gradient(150deg, #87c2ff, #a0c8d8, #fff, #fff);
+  background: linear-gradient(150deg, #87c1ffa1, #a0c8d880, transparent, transparent, transparent);
   flex: 1;
   width: 100%;
 }
@@ -200,6 +244,10 @@ a:hover {
 
 #data .line-6 {
   background-color: #8a8a8a;
+}
+
+#footer {
+  background: var(--grey-900, #101010);
 }
 
 @media screen and (max-width: 1024px) {
