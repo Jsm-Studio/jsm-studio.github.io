@@ -105,7 +105,7 @@ a:hover {
   color: var(--light);
   padding: 0 16px;
   height: 100%;
-  font-weight: 500;
+  font-weight: 300;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -120,17 +120,20 @@ a:hover {
 #cards [xlist] {
   gap: 10px;
   margin-top: 32px;
+  justify-content: center;
 }
 
 #cards [xlist]>[xbuild] {
-  max-width: 200px;
-  min-width: 160px;
+  max-width: 180px;
+  min-width: 140px;
   max-height: 250px;
+  height: auto;
   background: white;
   display: flex;
   padding: 12px;
   align-items: center;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
 #cards [ximage] {
@@ -149,7 +152,7 @@ a:hover {
 }
 
 #main .name {
-  background: linear-gradient(150deg, #87c2ff, #a0c8d8, #fff, #fff);
+  background: linear-gradient(150deg, #87c1ffa1, #a0c8d880, transparent, transparent, transparent);
   flex: 1;
   width: 100%;
 }

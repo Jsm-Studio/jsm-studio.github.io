@@ -32,13 +32,14 @@ jsm
       XContent({ id: "bodyContent" },
         XSection({ id: "cards" },
           XList({ listType: "row" },
-            XBlank(XImage("../src/cog.svg"), XText("text")),
-            XBlank(XText("text")),
-            XBlank(XText("text")),
-            XBlank(XText("text")),
-            XBlank(XText("text"))
+            XBlank(XImage("../src/cog.svg"), XText("Repair")),
+            XBlank(XImage("../src/pulse.svg"), XText("Diagnostic")),
+            XBlank(XImage("../src/shield-half.svg"), XText("Security")),
+            XBlank(XImage("../src/download.svg"), XText("Install OS")),
+            XBlank(XImage("../src/checkmark-circle.svg"), XText("Quality"))
           )
-        )
+        ),
+        XSection()
       ),
       XSection({ id: "about" },
         XContent(
