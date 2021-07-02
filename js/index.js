@@ -1,5 +1,5 @@
 import { XStudio, XBlank, XSection, XContent, XList, XText, XHero, XFooter, XImage } from "https://x-titan.github.io/xstudio/index.js"
-import { search, device, add, remove, scrollTo } from "http://x-titan.github.io/web-utils/index.js"
+import { search, device, add, remove, scrollTo } from "https://x-titan.github.io/web-utils/index.js"
 import animate from "./scrollAnimation.js"
 
 const app = document.getElementById("app")
