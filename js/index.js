@@ -21,12 +21,21 @@ jsm
           )
         )
       ),
-      XSection(
-        XList({ listType: "row", id: "main" },
-          XText({ css: ["name"], tagName: "h1" }, "JSM-Studio"),
-          XBlank({ css: "image" },
-            XImage("https://titanium-studio.github.io/src/jpg/robot4.jpg")
-          )
+      XSection({ id: "start", css: "grid" },
+        XBlank({ css: "start_title" },
+          XText({ tagName: "h1" }, "SABR")
+        ),
+        XBlank({ css: "start_description" },
+          XText("Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br><br>Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+        ),
+        XBlank({ css: "start_lab" },
+          XText("Quality\nAssurance")
+        ),
+        XBlank({ css: "start_card1" },
+          XImage("https://titanium-studio.github.io/src/webp/1.webp")
+        ),
+        XBlank({ css: "start_card2" },
+          XImage("https://titanium-studio.github.io/src/webp/gamepad.webp")
         )
       ),
       XContent({ id: "bodyContent" },
