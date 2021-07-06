@@ -14,14 +14,13 @@ jsm
         XContent(
           XBlank({ id: "logo" }, XHero(XText("JSM"))),
           XList({ tagName: "ul", listType: "row" },
-            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#main" }, "index")),
+            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#start" }, "index")),
             XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#about" }, "about us")),
-            XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#cards" }, "cards")),
             XBlank({ tagName: "li" }, XText({ tagName: "a", href: "#footer" }, "contact"))
           )
         )
       ),
-      XSection({ id: "start", css: "grid" },
+      XSection({ id: "start", css: ["grid", "grid-2"] },
         XBlank({ css: "start_title" },
           XText({ tagName: "h1" }, "SABR")
         ),
@@ -36,6 +35,20 @@ jsm
         ),
         XBlank({ css: "start_card2" },
           XImage("https://titanium-studio.github.io/src/webp/gamepad.webp")
+        )
+      ),
+      XSection({ id: "second", css: ["grid", "grid-2"] },
+        XBlank({ css: "second_title" },
+          XText({ tagName: "h2" }, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+          XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit."),
+          XBlank({ tagName: "a" },
+            XImage("../src/arrow.png")
+          )
+        ),
+        XBlank({ css: "second_image" },
+          XBlank(
+            XImage("https://titanium-studio.github.io/src/webp/city.webp")
+          )
         )
       ),
       XContent({ id: "bodyContent" },
@@ -110,7 +123,23 @@ jsm
           )
         )
       ),
-      XFooter({ id: "footer" })
+      XFooter({ id: "footer", css: "grid" },
+        XBlank({ css: "footer_title" },
+          XText({ tagName: "h3" }, "SABR Studio")
+        ),
+        XBlank({ css: "footer_description" },
+          XText(configP, "Lorem ipsum, dolor sit amet consectetur adipisicing elit.")
+        ),
+        XList({ listType: "row", css: "footer_social" },
+          XText("<a>Whatsapp</a>"),
+          XText("<a>VKontakte</a>"),
+          XText("<a>Telegramm</a>")
+        ),
+        XList({ listType: "row", css: "powered_power" },
+          XText("Powered by <a href='htttps://titanium-studio.github.io'>Titanium Studio</a>"),
+          XText("2021")
+        )
+      )
     ]
   )
   .then(jsm.use)
