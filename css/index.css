@@ -55,6 +55,14 @@ a:hover {
   background: #f0f0f0;
 }
 
+#xbody>[xbuild] {
+  margin-bottom: var(--section-margin);
+}
+
+#xbody>[xbuild]:last-child {
+  margin-bottom: 0;
+}
+
 #nav_panel {
   position: fixed;
   top: 0;
@@ -178,7 +186,6 @@ a:hover {
 #about h1 {
   text-align: center;
   max-width: 750px;
-  margin-top: var(--section-margin);
 }
 
 #about [xlist]>[xbuild] {
@@ -199,7 +206,6 @@ a:hover {
 }
 
 #data {
-  margin: var(--section-margin) 0;
   height: 100%;
 }
 
@@ -268,12 +274,13 @@ a:hover {
 
 .start_title {
   --position: 3/7/7/12;
+  font-size: 11vw;
   display: flex;
   align-items: flex-end;
 }
 
 .start_title h1 {
-  font-size: 11vw;
+  font-size: inherit;
   line-height: 0.85em;
 }
 
@@ -343,8 +350,8 @@ a:hover {
 
 .second_title a [ximage] {
   filter: invert(1);
-  width: 18px;
-  height: 18px;
+  width: 18px!important;
+  height: 18px!important;
 }
 
 .second_image {
@@ -395,20 +402,71 @@ a:hover {
   padding-top: 8px
 }
 
+@media screen and (max-width:1300px) {
+  #start {
+    height: 150vh;
+  }
+  .start_title {
+    --position: 1/3/3/-1;
+  }
+  .start_lab {
+    --position: 3/3/4/-1;
+  }
+  .start_description {
+    display: none;
+  }
+  .second_title {
+    --position: 1/4/6/-4;
+    flex-wrap: wrap;
+  }
+  .second_title>[xtext] {
+    width: 70%;
+  }
+  .second_image {
+    --position: 6/4/-1/-4;
+  }
+  .second_image>[xbuild] {
+    border-top-left-radius: 0;
+  }
+}
+
 @media screen and (max-width: 1024px) {
+  .start_card1 {
+    --position: 7/3/-1/10;
+  }
+  .start_card2 {
+    --position: 7/10/-1/-3
+  }
   #nav_panel [xcontent] {
     padding: 0 var(--size1, 16px);
+  }
+  #data, #bodyContent {
+    display: none;
+  }
+  #about [xlist]{
+    flex-direction: column;
+    padding: 0 0.5rem;
+  }
+  #about [xlist="row"]>[xlist]{
+    margin-top: 5em;
   }
 }
 
 @media screen and (max-width: 750px) {
-  #main {
-    flex-direction: column;
+  .start_title {
+    font-size: 4.5rem;
   }
-  #main .image [ximage] {
+  .start_card1 {
+    --position: 7/3/9/-3;
+  }
+  .start_card2 {
+    --position: 9/3/-1/-3
+  }
+  .second_title>[xtext] {
     width: 100%;
-    height: auto;
-    align-self: flex-end;
+  }
+  .second_image {
+    --position: 6/3/-1/-3;
   }
 }
 
