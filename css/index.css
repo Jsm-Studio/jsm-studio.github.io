@@ -443,12 +443,17 @@ a:hover {
   #data, #bodyContent {
     display: none;
   }
-  #about [xlist]{
+  #about [xlist] {
     flex-direction: column;
     padding: 0 0.5rem;
   }
-  #about [xlist="row"]>[xlist]{
+  #about [xlist="row"]>[xlist] {
     margin-top: 5em;
+  }
+  .footer_social {
+    --position: 1/12/3/-4;
+    flex-direction: column!important;
+    align-items: flex-end;
   }
 }
 
@@ -491,5 +496,8 @@ a:hover {
   #data .data-container .line-3 [ximage] {
     height: auto;
     width: 100%;
+  }
+  .footer_description {
+    display: none;
   }
 }
