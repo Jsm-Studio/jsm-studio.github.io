@@ -31,7 +31,7 @@ jsm
           XText("Quality\nAssurance")
         ),
         XBlank({ css: "start_card1" },
-          XImage("https://titanium-studio.github.io/src/webp/1.webp")
+          XImage("../src/image1.jpeg")
         ),
         XBlank({ css: "start_card2" },
           XImage("https://titanium-studio.github.io/src/webp/gamepad.webp")
